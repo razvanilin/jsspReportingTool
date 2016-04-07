@@ -1,0 +1,48 @@
+<form ng-show="viewForm" role="form" class="form-horizontal">
+  <div class="form-group">
+    <label for="inputProblem" class="col-sm-offset-1 col-sm-3 control-label">Problem Number</label>
+    <div class="col-sm-4">
+      <input type="text" ng-model="run.problem" class="form-control" id="inputProblem" placeholder="(1 - 146)" autofocus="true">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputGenerations" class="col-sm-offset-1 col-sm-3 control-label">Generations</label>
+    <div class="col-sm-4">
+      <input type="text" ng-model="run.generations" class="form-control" id="inputGenerations" placeholder="Number of generations">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPopulation" class="col-sm-offset-1 col-sm-3 control-label">Population</label>
+    <div class="col-sm-4">
+      <input type="text" ng-model="run.population" class="form-control" id="inputPopulation" placeholder="Population size">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputTournamentSize" class="col-sm-offset-1 col-sm-3 control-label">Tournament Size</label>
+    <div class="col-sm-4">
+      <input type="text" ng-model="run.tournamentSize" class="form-control" id="inputTournamentSize" placeholder="Tournament size">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputCrossovers" class="col-sm-offset-1 col-sm-3 control-label">Crossovers</label>
+    <div class="col-sm-4">
+      <input type="text" ng-model="run.crossovers" class="form-control" id="inputCrossovers" placeholder="Number of crossovers">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputMutations" class="col-sm-offset-1 col-sm-3 control-label">Mutations</label>
+    <div class="col-sm-4">
+      <input type="text" ng-model="run.mutations" class="form-control" id="inputMutations" placeholder="Number of mutations">
+    </div>
+  </div>
+  <div ng-show="errorMessage" class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    {{errorMessage}}dsadasd
+  </div>
+  <div class="form-group">
+      <button type="submit" ng-click="registerRun()" class="btn btn-lg btn-primary">
+        <span ng-show="loading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Start the Evolution!
+      </button>
+  </div>
+  <div ng-if="message" class="alert alert-danger" role="alert">{{ message }}</div>
+</form>

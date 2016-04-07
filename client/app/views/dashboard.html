@@ -1,0 +1,83 @@
+<ng-include src="'views/navbar.html'"></ng-include>
+
+<div ng-show="!evolutionStarted" class="row top-buffer-large">
+  <div ng-class="viewForm ? 'col-md-offset-2 col-md-8' : 'col-md-offset-4 col-md-4'">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+        {{viewForm ? 'Configure the algorithm' : 'Nothing seems to be evolving around here'}}
+      </div>
+      <div class="panel-body">
+        <button ng-show="!viewForm" class="btn btn-lg btn-primary" ng-click="showForm()">Start an evolution</button>
+        <ng-include src="'views/algorithmForm.html'"></ng-include>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div ng-show="evolutionStarted" class="row top-buffer-medium">
+  <div class="col-md-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Algorithm Details</div>
+      <div class="panel-body">
+        <h2><i ng-show="!evolutionFinished" class="fa fa-cog fa-spin text-primary"></i></h2>
+        <h2>Problem {{runData.problem}} {{evolutionFinished ? 'finished' : 'is running'}}</h2>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span class="badge">{{runData.generations}}</span>
+            Generations
+          </li>
+          <li class="list-group-item">
+            <span class="badge">{{runData.population}}</span>
+            Population Size
+          </li>
+          <li class="list-group-item">
+            <span class="badge">{{runData.tournamentSize}}</span>
+            Tournament Size
+          </li>
+          <li class="list-group-item">
+            <span class="badge">{{runData.crossovers}}</span>
+            Crossovers
+          </li>
+          <li class="list-group-item">
+            <span class="badge">{{runData.mutations}}</span>
+            Mutations
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <div class="panel panel-primary">
+
+      <div class="panel-heading">Generation Fitness</div>
+      <div class="panel-body">
+
+          <canvas ng-if="chartLabels" id="speed" class="chart chart-line" chart-data="chartData" chart-labels="chartLabels"
+            chart-legend="false" chart-series="chartSeries"></canvas>
+      </div>
+      <div ng-show="bestGeneration.fitness" class="panel-footer">
+        Best Generation: <strong>{{bestGeneration.generation}}</strong> with fitness <strong>{{bestGeneration.fitness}}</strong>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="row" >
+  <div class="col-md-offset-3 col-md-9" ng-class="evolutionFinished ? 'fade-in' : 'fade-out-bottom'">
+
+    <div class="panel panel-success">
+      <div class="panel-heading">Evolution Best Results</div>
+      <div class="panel-body">
+        <p><strong>The best generation: </strong><span class="text-primary">{{bestGeneration.generation}}</span></p>
+        <p><strong>The fitness was: </strong><span class="text-primary">{{bestGeneration.fitness}}</span></p>
+
+      </div>
+    </div>
+
+  </div>
+</div>

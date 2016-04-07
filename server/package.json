@@ -1,0 +1,38 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "The server side of the modular MEAN stack application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/razvanilin/mean-gen-empty.git"
+  },
+  "keywords": [
+    "mean-gen",
+    "mean",
+    "stack",
+    "modular",
+    "empty"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/razvanilin/mean-gen-empty/issues"
+  },
+  "homepage": "https://github.com/razvanilin/mean-gen-empty#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "lodash": "^3.10.1",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.11",
+    "mongoose-timestamp": "^0.4.0",
+    "path": "^0.12.7",
+    "socket.io": "^1.4.5"
+  }
+}
