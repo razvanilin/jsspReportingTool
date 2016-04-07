@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" ng-href=""><img src="images/logo.png" height="25px"></a>
+      <a class="navbar-brand" ng-href="#/dashboard"><img src="images/logo.png" height="25px"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,13 +20,8 @@
         <li ng-show="evolutionFinished" role="presentation"><a ng-click="newEvolution()" class="text-primary"><i class="fa fa-play-circle text-primary"></i> Start a new evolution</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a id="user-settings" class="dropdown-toggle" data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false" style="color:#333333 "><img ng-src="{{profile.picture}}" class="img-circle" height="25px"> <strong>{{profile.given_name}} <span class="glyphicon glyphicon-option-vertical"></span></strong></a>
-          <ul class="dropdown-menu" aria-labelledby="user-settings">
-            <li><a ng-href=""><span class="glyphicon glyphicon-cog"></span> Account Settings</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a ng-href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
-          </ul>
+        <li role="presentation" ng-class="{'active': viewRuns}">
+          <a ng-href="#/run">Check past evolutions</a>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->

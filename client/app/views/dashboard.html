@@ -46,6 +46,8 @@
             Mutations
           </li>
         </ul>
+
+        <button ng-show="evolutionStarted && !evolutionFinished" class="btn btn-primary" ng-click="stopJar()"><i class="fa fa-stop-circle"></i> Stop the Evolution</button>
       </div>
     </div>
   </div>
@@ -71,10 +73,9 @@
   <div class="col-md-offset-3 col-md-9" ng-class="evolutionFinished ? 'fade-in' : 'fade-out-bottom'">
 
     <div class="panel panel-success">
-      <div class="panel-heading">Evolution Best Results</div>
+      <div class="panel-heading">Evolution Best Results - Generation {{bestGeneration.generation}}</div>
       <div class="panel-body">
-        <p><strong>The best generation: </strong><span class="text-primary">{{bestGeneration.generation}}</span></p>
-        <p><strong>The fitness was: </strong><span class="text-primary">{{bestGeneration.fitness}}</span></p>
+        <p><strong>The solution is: </strong><span class="text-primary">{{bestGeneration.solution}}</span></p>
 
       </div>
     </div>

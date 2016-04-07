@@ -1,0 +1,12 @@
+<ng-include src="'views/navbar.html'"></ng-include>
+
+<div class="row top-buffer-medium" style="margin-left:20px; margin-right:20px">
+  <div class="row" ng-repeat="run in runs">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Problem {{run.problem}}</div>
+      <div class="panel-body">
+        Ran over {{run.generations}} generations.
+      </div>
+    </div>
+  </div>
+</div>

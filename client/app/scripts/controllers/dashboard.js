@@ -48,9 +48,9 @@ angular.module('clientApp')
     }
 
     runSocket.on('jar-data', function(data) {
-      console.log(data[0].fitness);
+      //console.log(data[0].solution);
       $scope.chartData[0][data[0].generation] = data[0].fitness;
-
+      //console.log($scope.chartData[0]);
       if (data[0].generation == 0) $scope.bestGeneration = data[0];
 
       if (data[0].fitness < $scope.bestGeneration.fitness) {
@@ -60,6 +60,20 @@ angular.module('clientApp')
     });
 
     runSocket.on('jar-finished', function(data) {
+      $scope.chartData[0][data[0].generation] = data[0].fitness;
+      //console.log($scope.chartData[0]);
+      if (data[0].generation == 0) $scope.bestGeneration = data[0];
+
+      if (data[0].fitness < $scope.bestGeneration.fitness) {
+        $scope.bestGeneration = data[0];
+      }
+
       $scope.evolutionFinished = true;
     });
+
+    $scope.stopJar = function() {
+
+      runSocket.emit('jar-stop', "STOP");
+      $scope.evolutionFinished = true;
+    };
   });

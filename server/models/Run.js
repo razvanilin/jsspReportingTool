@@ -27,6 +27,9 @@ var RunSchema = new mongoose.Schema({
     },
     fitness: {
       type: Number
+    },
+    solution: {
+      type: String
     }
   }]
 });

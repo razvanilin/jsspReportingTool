@@ -48,6 +48,11 @@ angular
         controller: 'DashboardCtrl',
         controllerAs: 'dashboard'
       })
+      .when('/run', {
+        templateUrl: 'views/run.html',
+        controller: 'RunCtrl',
+        controllerAs: 'run'
+      })
       .otherwise({
         redirectTo: '/'
       });
