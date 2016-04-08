@@ -1,12 +1,65 @@
 <ng-include src="'views/navbar.html'"></ng-include>
 
-<div class="row top-buffer-medium" style="margin-left:20px; margin-right:20px">
-  <div class="row" ng-repeat="run in runs">
-    <div class="panel panel-primary">
-      <div class="panel-heading">Problem {{run.problem}}</div>
-      <div class="panel-body">
-        Ran over {{run.generations}} generations.
+<div ng-show="!runData" class="row top-buffer-medium" style="margin-left:20px; margin-right:20px;cursor:pointer">
+  <div ng-repeat="run in runs">
+    <div class="clearfix" ng-if="$index % 3 == 0"></div>
+    <div class="col-md-4">
+      <div class="panel panel-primary" ng-click="selectRun(run)">
+        <div class="panel-heading"><strong>Problem {{run.problem}}</strong> - <span class="">{{run.createdAt}}</span></div>
+        <div class="panel-body">
+          Ran over {{run.results.length}} generations.
+        </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div ng-show="runData" class="row top-buffer-medium">
+  <div class="col-md-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><i class="fa fa-chevron-circle-left fa-2x" style="float:left" ng-click="back()"></i> Algorithm Details</div>
+      <div class="panel-body">
+        Problem {{runData.problem}} - {{runData.createdAt}}
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span class="badge">{{runData.generations}}</span>
+            Generations
+          </li>
+          <li class="list-group-item">
+            <span class="badge">{{runData.population}}</span>
+            Population Size
+          </li>
+          <li class="list-group-item">
+            <span class="badge">{{runData.tournamentSize}}</span>
+            Tournament Size
+          </li>
+          <li class="list-group-item">
+            <span class="badge">{{runData.crossovers}}</span>
+            Crossovers
+          </li>
+          <li class="list-group-item">
+            <span class="badge">{{runData.mutations}}</span>
+            Mutations
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <div class="panel panel-primary">
+
+      <div class="panel-heading">Fitness over generations</div>
+      <div class="panel-body">
+
+          <canvas ng-if="chartLabels" id="speed" class="chart chart-line" chart-data="chartData" chart-labels="chartLabels"
+            chart-legend="false" chart-series="chartSeries"></canvas>
+      </div>
+      <div class="panel-footer">
+        Best Generation: <strong>{{bestGeneration.generation}}</strong> with fitness <strong>{{bestGeneration.fitness}}</strong>
+      </div>
+
     </div>
   </div>
 </div>

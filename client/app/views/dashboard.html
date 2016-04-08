@@ -55,14 +55,17 @@
   <div class="col-md-9">
     <div class="panel panel-primary">
 
-      <div class="panel-heading">Generation Fitness</div>
+      <div class="panel-heading">Fitness over generations</div>
       <div class="panel-body">
 
           <canvas ng-if="chartLabels" id="speed" class="chart chart-line" chart-data="chartData" chart-labels="chartLabels"
             chart-legend="false" chart-series="chartSeries"></canvas>
       </div>
       <div ng-show="bestGeneration.fitness" class="panel-footer">
-        Best Generation: <strong>{{bestGeneration.generation}}</strong> with fitness <strong>{{bestGeneration.fitness}}</strong>
+        <div class="row">
+          <div class="col-md-6">Current Generation: <strong>{{currentGeneration}}</strong> with fitness <strong>{{currentFitness}}</strong></div>
+          <div class="col-md-6">Best Generation: <strong>{{bestGeneration.generation}}</strong> with fitness <strong>{{bestGeneration.fitness}}</strong></div>
+        </div>
       </div>
 
     </div>

@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li ng-if="!evolutionFinished" ng-show="evolutionStarted" role="presentation"><a class="text-primary"><i class="fa fa-cog fa-spin text-primary"></i></a></li>
-        <li ng-show="!evolutionStarted || evolutionFinished" role="presentation"><a>No evolution is running yet.</a></li>
+        <li ng-show="!evolutionStarted || evolutionFinished" role="presentation"><a ng-href="#/dashboard">No evolution is running yet.</a></li>
         <li ng-show="evolutionStarted && !evolutionFinished" role="presentation"><a class="text-primary">An evolution is running...</a></li>
         <li ng-show="evolutionFinished" role="presentation"><a ng-click="newEvolution()" class="text-primary"><i class="fa fa-play-circle text-primary"></i> Start a new evolution</a></li>
       </ul>
