@@ -74,6 +74,26 @@ module.exports = function(app, route) {
             app.io.emit('jar-data', foundRun.results);
           }
         });
+      } else if (formattedData.indexOf("JSSPTime: ") > -1) {
+        var time = formattedData.replace("JSSPTime: ", "");
+        setTimeout(function() {
+          Run.findOne({
+            _id: id
+          }, function(err, foundRun) {
+            if (err) return;
+
+            foundRun.time = time;
+              foundRun.save(function(err) {
+                if (err)
+                {
+                  console.log("hello");
+                  console.log(err);
+                }
+              });
+
+            app.io.emit('jar-time', time);
+          });
+        }, 3000);
       }
 
     });

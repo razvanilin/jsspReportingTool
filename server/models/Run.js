@@ -21,6 +21,9 @@ var RunSchema = new mongoose.Schema({
   mutations: {
     type: Number
   },
+  time: {
+    type: String
+  },
   results: [{
     generation: {
       type: Number

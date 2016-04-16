@@ -61,6 +61,10 @@ angular.module('clientApp')
 
     });
 
+    runSocket.on('jar-time', function(data) {
+      $scope.time = data;
+    });
+
     runSocket.on('jar-finished', function(data) {
       $scope.chartData[0][data[0].generation] = data[0].fitness;
       //console.log($scope.chartData[0]);
